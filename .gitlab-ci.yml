@@ -7,6 +7,8 @@ molecule:
   image: retr0h/molecule:2.19
   tags:
     - docker
+  only:
+    - merge_requests
   script:
     - sudo ansible-lint $(find . -regex ".*\.\(yml\)")
     - sudo molecule test -s default
