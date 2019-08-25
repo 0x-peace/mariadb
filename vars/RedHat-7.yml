@@ -1,0 +1,10 @@
+---
+__mysql_daemon: mysql
+__mysql_packages:
+  - mysql-server
+  - mysql-client
+  - MySQL-python
+
+mysql_config_file: /etc/my.cnf
+mysql_socket: /var/lib/mysql/mysql.sock
+mysql_deamon: "mariadb.service"

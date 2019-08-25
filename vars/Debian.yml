@@ -1,0 +1,10 @@
+---
+__mariadb_daemon: mysql
+
+__mariadb_packages:
+    - mysqltuner
+    - python-mysqldb
+    - mariadb-server
+
+mariadb_config_file: /etc/mysql/my.cnf
+mariadb_socket: /var/run/mysqld/mysqld.sock

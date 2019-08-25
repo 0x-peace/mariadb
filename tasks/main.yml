@@ -1,0 +1,17 @@
+---
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- name: Define mysql_daemon.
+  set_fact:
+    mariadb_deamon: "{{ __mariadb_daemon }} "
+  when: mariadb_daemon is not defined
+
+- name: Install OS
+  include_tasks: "install-{{ ansible_distribution }}.yml"
+
+- name: Security installation
+  import_tasks: secure_installation.yml
+
+- name: Configuring MySQL-server
+  import_tasks: configure.yml

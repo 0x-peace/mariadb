@@ -1,0 +1,21 @@
+---
+- name: Install depended packaages
+  apt:
+    name:
+      - software-properties-common
+      - dirmngr
+    state: present
+
+- name: Add MariaDB repository
+  apt_repository:
+    repo: deb [arch=amd64] http://download.nus.edu.sg/mirror/mariadb/repo/{{ mariadb_version }}/debian {{ ansible_distribution_release }} main
+    state: present
+
+- name: Ensure MySQL packages are installed.
+  apt:
+    name:
+      - mysqltuner
+      - python-mysqldb
+      - mariadb-server
+    state: present
+    update_cache: yes
