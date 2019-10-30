@@ -1,10 +1,4 @@
 ---
-- name: restart mysql
-  systemd:
-    name: mysql
-    state: restarted
-    enabled: yes
-
 - name: delete ib_logfiles
   file:
     path: "{{ item }}"
@@ -12,3 +6,9 @@
   with_items:
     - /var/lib/mysql/ib_logfile0
     - /var/lib/mysql/ib_logfile1
+
+- name: restart mysql
+  systemd:
+    name: mysql
+    state: restarted
+    enabled: yes
