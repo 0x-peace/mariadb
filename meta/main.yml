@@ -36,8 +36,9 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-        - 18.04
-    - name: CentOS
+        - xenial
+        - bionic
+    - name: EL
       versions:
         - 7
 
