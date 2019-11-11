@@ -5,7 +5,10 @@
   changed_when: false
 
 - name: Update MySQL root password for localhost root account.
-  mysql_user: name="root" host={{ item }} password={{ mariadb_root_password }}
+  mysql_user:
+    name: "root"
+    host: "{{ item }}"
+    password: "{{ mariadb_root_password }}"
   with_items: "{{ mysql_root_hosts.stdout_lines }}"
 
 - name: Copy .my.cnf file with root password credentials.
@@ -17,4 +20,6 @@
     mode: 0600
 
 - name: Remove MySQL test database.
-  mysql_db: "name='test' state=absent"
+  mysql_db:
+    name: "test"
+    state: "absent"

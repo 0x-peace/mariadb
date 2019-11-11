@@ -1,6 +1,9 @@
 ---
 # Mariadb version 5.5 or 10.0 or 10.1
-mariadb_version: "10.4"
+mariadb_version: "10.3"
+
+mariadb_repo_prefix: "deb [arch=amd64] https://ftp.harukasan.org/mariadb/repo/"
+mariadb_debian_repo: "{{ mariadb_repo_prefix }}/{{ mariadb_version }}/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} main"
 
 mariadb_root_password: "{{ lookup('password', '/home/ikondratyev/clients/' + ansible_fqdn + '/' + 'mysql-pass chars=ascii_letters,digits') }}"
 
