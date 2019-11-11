@@ -19,7 +19,7 @@
   when: mysql_slow_query_log_enabled
 
 - name: Ensure MySQL is started and enabled on boot
-  service:
+  systemd:
     name: mysql
     state: started
     enabled: yes

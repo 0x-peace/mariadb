@@ -2,20 +2,33 @@
 - name: Install depended packaages
   apt:
     name:
-      - software-properties-common
-      - dirmngr
+      - gnupg
     state: present
+
+- name: Add MariaDB apt key
+  apt_key:
+    id: "0xF1656F24C74CD1D8"
+    keyserver: "hkp://keyserver.ubuntu.com:80"
 
 - name: Add MariaDB repository
   apt_repository:
-    repo: deb [arch=amd64] http://download.nus.edu.sg/mirror/mariadb/repo/{{ mariadb_version }}/debian {{ ansible_distribution_release }} main
+    repo: "{{ mariadb_debian_repo }}"
     state: present
+    filename: mariadb
 
-- name: Ensure MySQL packages are installed.
+- name: Install mariadb packages
   apt:
     name:
-      - mysqltuner
-      - python-mysqldb
       - mariadb-server
+      - python-mysqldb
+      - mysqltuner
     state: present
     update_cache: yes
+  notify:
+    - delete ib_logfiles
+
+- name: Starting mariadb
+  systemd:
+    name: mariadb
+    state: started
+    enabled: yes
