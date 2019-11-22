@@ -20,6 +20,6 @@
 
 - name: Ensure MySQL is started and enabled on boot
   systemd:
-    name: mysql
+    name: "{{ mariadb_deamon }}"
     state: started
     enabled: yes

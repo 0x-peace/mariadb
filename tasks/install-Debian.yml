@@ -26,9 +26,3 @@
     update_cache: yes
   notify:
     - delete ib_logfiles
-
-- name: Starting mariadb
-  systemd:
-    name: mariadb
-    state: started
-    enabled: yes
