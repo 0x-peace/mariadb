@@ -4,7 +4,7 @@
 
 - name: Define mysql_daemon.
   set_fact:
-    mariadb_deamon: "{{ __mariadb_daemon }} "
+    mariadb_deamon: "{{ __mariadb_daemon }}"
   when: mariadb_daemon is not defined
 
 - name: Install OS packages
