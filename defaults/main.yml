@@ -21,7 +21,7 @@ mysql_slow_query_time: 2
 mysql_port: "3306"
 mysql_bind_address: '127.0.0.1'
 mysql_datadir: /var/lib/mysql
-mysql_pid_file: /var/run/mysqld/mysqld.pid
+# mysql_pid_file: /var/run/mysqld/mysqld.pid
 
 # Memory settings (default values optimized ~512MB RAM).
 mysql_key_buffer_size: "64M"
@@ -58,5 +58,5 @@ mysql_mysqldump_max_allowed_packet: "64M"
 
 # Logging settings.
 mysql_log: ""
-mysql_log_error: /var/log/mysql.err
+mysql_log_error: /var/lib/mysql/mysql.err
 mysql_syslog_tag: mysql

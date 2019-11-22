@@ -9,6 +9,6 @@
 
 - name: restart mysql
   systemd:
-    name: mysql
+    name: "{{ mariadb_deamon }}"
     state: restarted
     enabled: yes
