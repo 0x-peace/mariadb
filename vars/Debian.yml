@@ -3,4 +3,4 @@ __mariadb_daemon: mysql
 
 mariadb_config_file: /etc/mysql/my.cnf
 mariadb_socket: /var/run/mysqld/mysqld.sock
-mysql_pid_file: /var/run/mysqld/mysqld.pid
+mariadb_pid_file: /var/run/mysqld/mysqld.pid

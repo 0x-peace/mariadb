@@ -2,7 +2,7 @@
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
-- name: Define mysql_daemon.
+- name: Define mariadb_daemon.
   set_fact:
     mariadb_deamon: "{{ __mariadb_daemon }}"
   when: mariadb_daemon is not defined

@@ -11,12 +11,12 @@
 
 - name: Set ownership on slow query log file (if configured).
   file:
-    path: "{{ mysql_slow_query_log_file }}"
+    path: "{{ mariadb_slow_query_log_file }}"
     state: file
     owner: mysql
     group: mysql
     mode: 0644
-  when: mysql_slow_query_log_enabled
+  when: mariadb_slow_query_log_enabled
 
 - name: Start MySQL daemon
   systemd:
