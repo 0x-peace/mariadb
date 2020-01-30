@@ -7,6 +7,7 @@ socket                  = {{ mariadb_socket }}
 nice                    = 0
 
 [mysqld]
+plugin-load-add         = auth_socket.so
 user                    = mysql
 pid-file                = {{ mariadb_pid_file }}
 socket                  = {{ mariadb_socket }}
